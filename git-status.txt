@@ -1,0 +1,32 @@
+On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   .gitignore
+	new file:   DEPLOYMENT.md
+	new file:   PROGRESS-REPORT.md
+	new file:   README.md
+	new file:   backend/AgentManager.js
+	new file:   backend/agent-connectors.js
+	new file:   backend/package.json
+	new file:   backend/server.js
+	new file:   deploy.sh
+	new file:   development-engine.js
+	new file:   example-server.js
+	new file:   frontend/index.html
+	new file:   frontend/package.json
+	new file:   package.json
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   DEPLOYMENT.md
+	modified:   deploy.sh
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	FILES.md
+	git-status.txt
+

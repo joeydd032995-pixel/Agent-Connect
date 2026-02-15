@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multi-Agent Control Hub</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 20px; 
+            background: #f0f0f0; 
+        }
+        .header { 
+            background: #2c3e50; 
+            color: white; 
+            padding: 1rem; 
+            margin-bottom: 2rem; 
+        }
+        .agent-card { 
+            background: white; 
+            padding: 1rem; 
+            margin: 0.5rem 0; 
+            border-radius: 4px; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🕹️ Multi-Agent Control Hub</h1>
+        <p>Centralized management for AI agents</p>
+    </div>
+    
+    <div id="agents-container">
+        <p>Agents will appear here when backend is running</p>
+    </div>
+    
+    <script>
+        // Simple JavaScript to demonstrate functionality
+        async function loadAgents() {
+            try {
+                const response = await fetch('http://localhost:3001/api/agents');
+                const data = await response.json();
+                
+                const container = document.getElementById('agents-container');
+                container.innerHTML = '';
+                
+                if (data.agents && data.agents.length > 0) {
+                    data.agents.forEach(agent => {
+                        const agentDiv = document.createElement('div');
+                        agentDiv.className = 'agent-card';
+                        agentDiv.innerHTML = `
+                            <strong>${agent.name}${agent.name > </strong>
+                            <p>Type: ${agent.type}${agent.type > </p>
+                            <p>Status: ${agent.status}${agent.status > </p>
+                            <p>Capabilities: ${agent.capabilities.join(', ')}${agent.capabilities > </p>
+                        `;
+                        container.appendChild(agentDiv);
+                    });
+                } else {
+                    container.innerHTML = '<p>No agents registered. Start the backend server first.</p>';
+                }
+            } catch (error) {
+                document.getElementById('agents-container').innerHTML = 
+                    '<p>Error connecting to backend. Make sure the server is running on port 3001.</p>';
+            }
+        }
+        
+        // Try to load agents when page loads
+        loadAgents();
+        
+        // Refresh every 10 seconds
+        setInterval(loadAgents, 10000);
+    </script>
+</body>
+</html>

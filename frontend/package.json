@@ -1,0 +1,10 @@
+{
+  "name": "multi-agent-hub-frontend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "echo 'Frontend development mode'",
+    "build": "echo 'Building frontend'",
+    "start": "echo 'Starting frontend'"
+  }
+}
